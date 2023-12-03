@@ -106,7 +106,7 @@ while True:
                    11.Diarrhea\n"""))
 
         if symptoms=="Yes":
-            print("Consider undergoing a COVID-19 viral test at least five days after being in close contact with someone who is known or suspected to have the virus. If symptoms appear earlier, get tested promptly. Meanwhile, follow the quarantine guidelines, considering your vaccination status, as you await your test results. Seek personalized medical advice from a healthcare professional for further guidance.")
+            print("Consider undergoing a COVID-19 viral test. If symptoms have appeared earlier, get tested promptly. Meanwhile, follow the quarantine guidelines, considering your vaccination status, as you await your test results. Seek personalized medical advice from a healthcare professional for further guidance.")
         else:
             print("It seems like you haven't experienced any COVID-19 symptoms.")
 

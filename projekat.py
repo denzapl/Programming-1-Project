@@ -1,4 +1,3 @@
-
 # User registration
 def register_user():
     email = input("Enter your email address: ")
@@ -6,6 +5,49 @@ def register_user():
     print("Registration succesful.")
 # Register a user
 register_user()
+
+questions = [" What are the major risk factors that increase the severity of COVID-19 symptoms?",
+    "How effective are booster doses in enhancing immunity against COVID-19?",
+    "What is the role of ventilation in reducing the spread of COVID-19 indoors?",
+    "Are there any specific dietary recommendations to boost immunity against COVID-19?",
+    "How do monoclonal antibodies work in treating COVID-19?",
+    "What are the potential long-term effects of COVID-19 vaccination?",
+    "How do public health measures differ in managing COVID-19 in various countries?",
+    "What strategies can help mitigate 'pandemic fatigue' or burnout?",
+    "Can pets or animals transmit COVID-19 to humans?",
+    "How does COVID-19 affect individuals with pre-existing health conditions?",
+    "What are the possible reasons behind vaccine hesitancy or resistance in some populations?",
+    "What measures can schools take to minimize COVID-19 transmission among students and staff?",
+    "How effective are natural remedies or alternative therapies in treating COVID-19 symptoms?",
+    "What are the challenges faced in distributing vaccines globally?",
+    "How can businesses implement safety protocols to protect employees from COVID-19 in the workplace?",
+    "What are the ethical considerations surrounding vaccine prioritization and distribution?",
+    "How does COVID-19 impact lung health in the long term?",
+    "Are there any specific guidelines for safely attending gatherings or events during the pandemic?",
+    "What research is being conducted on new treatments or medications for COVID-19?",
+    "How does COVID-19 vaccination affect the transmission rate of the virus within communities?"]
+
+answers = ["1. Major risk factors for severe COVID-19 symptoms include age, underlying health conditions (such as diabetes or heart disease), weakened immune systems, and certain occupations or living conditions that increase exposure.",
+    "2. Booster doses significantly enhance immunity against COVID-19, especially against variants, by increasing antibody levels and providing stronger protection against severe illness.",
+    "3. Proper ventilation reduces the concentration of airborne virus particles indoors, lowering the risk of transmission among individuals.",
+    "4. While a balanced diet rich in fruits, vegetables, whole grains, and adequate protein supports the immune system, there's no specific diet proven to prevent COVID-19.",
+    "5. Monoclonal antibodies neutralize the virus, reduce viral load, and help the immune system fight COVID-19, often used for high-risk individuals or those with mild to moderate symptoms.",
+    "6. Long-term effects of vaccination focus on immune response, with severe adverse effects being rare.",
+    "7. Public health measures vary based on country policies, including vaccination strategies, mask mandates, lockdowns, testing, and contact tracing.",
+    "8. Strategies to mitigate pandemic fatigue include promoting self-care, encouraging breaks, maintaining routines, fostering social connections, and seeking professional support.",
+    "9. While pets can contract the virus, transmission to humans is rare and mostly occurs from human to pet rather than the other way around.",
+    "10. Individuals with pre-existing health conditions are at higher risk for severe illness or complications if they contract COVID-19.",
+    "11. Reasons for vaccine hesitancy vary from safety concerns, misinformation, lack of trust in authorities, historical issues, religious or cultural beliefs, to political influences.",
+    "12. School measures to minimize COVID-19 transmission include implementing mask mandates, promoting vaccinations for eligible students and staff, maintaining physical distancing, improving ventilation, and regular testing.",
+    "13. While some natural remedies might help alleviate symptoms, there's limited evidence supporting their effectiveness in treating COVID-19.",
+    "14. Challenges in vaccine distribution include supply chain issues, equitable access, storage requirements, and vaccine hesitancy.",
+    "15. Business safety protocols include implementing mask mandates, encouraging vaccinations, maintaining physical distancing, improving ventilation, and offering remote work options where feasible.",
+    "16. Ethical considerations in vaccine prioritization and distribution involve prioritizing vulnerable populations, ensuring equitable distribution globally, and balancing individual rights with public health.",
+    "17. Some individuals may experience long-term lung damage, including reduced lung function and fibrosis, after severe COVID-19 infection.",
+    "18. Guidelines for safely attending gatherings or events during the pandemic often include vaccination, mask-wearing, maintaining distance, and ensuring proper ventilation.",
+    "19. Research on new treatments or medications for COVID-19 focuses on antiviral medications, monoclonal antibodies, and repurposed drugs to reduce severity and improve recovery.",
+    "20. COVID-19 vaccination reduces transmission by lowering the likelihood of infection and severe disease, thus decreasing the spread within communities."]
+
 
 print("Welcome to the COVID-19 chatbot.")
 print("Hello, my name is covid.io, and I am here to answer all questions COVID-19 related.")
@@ -18,78 +60,21 @@ while True:
         "4. COVID-19 Information\n"
         "0. Exit Chatbot\n"        ))
 
-    if choices == 1:
-        print("""
-    1. What are the major risk factors that increase the severity of COVID-19 symptoms?
-    2. How effective are booster doses in enhancing immunity against COVID-19?
-    3. What is the role of ventilation in reducing the spread of COVID-19 indoors?
-    4. Are there any specific dietary recommendations to boost immunity against COVID-19?
-    5. How do monoclonal antibodies work in treating COVID-19?
-    6. What are the potential long-term effects of COVID-19 vaccination?
-    7. How do public health measures differ in managing COVID-19 in various countries?
-    8. What strategies can help mitigate "pandemic fatigue" or burnout?
-    9. Can pets or animals transmit COVID-19 to humans?
-    10. How does COVID-19 affect individuals with pre-existing health conditions?
-    11. What are the possible reasons behind vaccine hesitancy or resistance in some populations?
-    12. What measures can schools take to minimize COVID-19 transmission among students and staff?
-    13. How effective are natural remedies or alternative therapies in treating COVID-19 symptoms?
-    14. What are the challenges faced in distributing vaccines globally?
-    15. How can businesses implement safety protocols to protect employees from COVID-19 in the workplace?
-    16. What are the ethical considerations surrounding vaccine prioritization and distribution?
-    17. How does COVID-19 impact lung health in the long term?
-    18. Are there any specific guidelines for safely attending gatherings or events during the pandemic?
-    19. What research is being conducted on new treatments or medications for COVID-19?
-    20. How does COVID-19 vaccination affect the transmission rate of the virus within communities?""")
-        while True:
-            questions=int(input("Please select a number to get an answer about COVID-19 (1-20) : "))
-            if questions == 1:
-                print("Major risk factors for severe COVID-19 symptoms include age, underlying health conditions (such as diabetes or heart disease), weakened immune systems, and certain occupations or living conditions that increase exposure.")
-            elif questions == 2:
-                print("Booster doses significantly enhance immunity against COVID-19, especially against variants, by increasing antibody levels and providing stronger protection against severe illness.")
-            elif questions == 3:
-                print("Proper ventilation reduces the concentration of airborne virus particles indoors, lowering the risk of transmission among individuals.")
-            elif questions == 4:
-                print("While a balanced diet rich in fruits, vegetables, whole grains, and adequate protein supports the immune system, there's no specific diet proven to prevent COVID-19.")
-            elif questions == 5:
-                print("Monoclonal antibodies neutralize the virus, reduce viral load, and help the immune system fight COVID-19, often used for high-risk individuals or those with mild to moderate symptoms.")
-            elif questions == 6:
-                print("Long-term effects of vaccination focus on immune response, with severe adverse effects being rare.")
-            elif questions == 7:
-                print("Public health measures vary based on country policies, including vaccination strategies, mask mandates, lockdowns, testing, and contact tracing.")
-            elif questions == 8:
-                print("Strategies to mitigate pandemic fatigue include promoting self-care, encouraging breaks, maintaining routines, fostering social connections, and seeking professional support.")
-            elif questions == 9:
-                print("While pets can contract the virus, transmission to humans is rare and mostly occurs from human to pet rather than the other way around.")
-            elif questions == 10:
-                print("Individuals with pre-existing health conditions are at higher risk for severe illness or complications if they contract COVID-19.")
-            elif questions == 11:
-                print("Reasons for vaccine hesitancy vary from safety concerns, misinformation, lack of trust in authorities, historical issues, religious or cultural beliefs, to political influences.")
-            elif questions == 12:
-                print("School measures to minimize COVID-19 transmission include implementing mask mandates, promoting vaccinations for eligible students and staff, maintaining physical distancing, improving ventilation, and regular testing.")
-            elif questions == 13:
-                print("While some natural remedies might help alleviate symptoms, there's limited evidence supporting their effectiveness in treating COVID-19.")
-            elif questions == 14:
-                print("Challenges in vaccine distribution include supply chain issues, equitable access, storage requirements, and vaccine hesitancy.")
-            elif questions == 15:
-                print("Business safety protocols include implementing mask mandates, encouraging vaccinations, maintaining physical distancing, improving ventilation, and offering remote work options where feasible.")
-            elif questions == 16:
-                print("Ethical considerations in vaccine prioritization and distribution involve prioritizing vulnerable populations, ensuring equitable distribution globally, and balancing individual rights with public health.")
-            elif questions == 17:
-                print("Some individuals may experience long-term lung damage, including reduced lung function and fibrosis, after severe COVID-19 infection.")
-            elif questions == 18:
-                print("Guidelines for safely attending gatherings or events during the pandemic often include vaccination, mask-wearing, maintaining distance, and ensuring proper ventilation.")
-            elif questions == 19:
-                print("Research on new treatments or medications for COVID-19 focuses on antiviral medications, monoclonal antibodies, and repurposed drugs to reduce severity and improve recovery.")
-            elif questions == 20:
-                print("COVID-19 vaccination reduces transmission by lowering the likelihood of infection and severe disease, thus decreasing the spread within communities.")
 
-            moreq=str(input("Do you have any more questions: (Yes/No) "))
-            if moreq=="No":
+    if choices == 1:
+        for idx, q in enumerate(questions, start=1):
+            print(f"{idx}. {q}")
+        question_choice = int(input("Choose a question number for more details: "))
+        if 1 <= question_choice <= len(questions):
+            chosen_question = questions[question_choice - 1]
+            answer_index = question_choice - 1
+            print(f"Question: {chosen_question}")
+            print(f"Answer: {answers[answer_index]}")
+
+        moreq=str(input("Do you have any more questions: (Yes/No) "))
+        if moreq=="No":
                 print("Thank you for using the COVID-19 chatbot. If you have any more questions you can choose from the following categories: ")
                 break
-
-
-
 
     elif choices==2:
         symptoms=str(input("""Within the last 10 days, have you experienced any of the following symptoms: (Yes/No)

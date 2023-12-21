@@ -27,26 +27,26 @@ questions = [" What are the major risk factors that increase the severity of COV
     "What research is being conducted on new treatments or medications for COVID-19?",
     "How does COVID-19 vaccination affect the transmission rate of the virus within communities?"]
 
-answers = ["1. Major risk factors for severe COVID-19 symptoms include age, underlying health conditions (such as diabetes or heart disease), weakened immune systems, and certain occupations or living conditions that increase exposure.",
-    "2. Booster doses significantly enhance immunity against COVID-19, especially against variants, by increasing antibody levels and providing stronger protection against severe illness.",
-    "3. Proper ventilation reduces the concentration of airborne virus particles indoors, lowering the risk of transmission among individuals.",
-    "4. While a balanced diet rich in fruits, vegetables, whole grains, and adequate protein supports the immune system, there's no specific diet proven to prevent COVID-19.",
-    "5. Monoclonal antibodies neutralize the virus, reduce viral load, and help the immune system fight COVID-19, often used for high-risk individuals or those with mild to moderate symptoms.",
-    "6. Long-term effects of vaccination focus on immune response, with severe adverse effects being rare.",
-    "7. Public health measures vary based on country policies, including vaccination strategies, mask mandates, lockdowns, testing, and contact tracing.",
-    "8. Strategies to mitigate pandemic fatigue include promoting self-care, encouraging breaks, maintaining routines, fostering social connections, and seeking professional support.",
-    "9. While pets can contract the virus, transmission to humans is rare and mostly occurs from human to pet rather than the other way around.",
-    "10. Individuals with pre-existing health conditions are at higher risk for severe illness or complications if they contract COVID-19.",
-    "11. Reasons for vaccine hesitancy vary from safety concerns, misinformation, lack of trust in authorities, historical issues, religious or cultural beliefs, to political influences.",
-    "12. School measures to minimize COVID-19 transmission include implementing mask mandates, promoting vaccinations for eligible students and staff, maintaining physical distancing, improving ventilation, and regular testing.",
-    "13. While some natural remedies might help alleviate symptoms, there's limited evidence supporting their effectiveness in treating COVID-19.",
-    "14. Challenges in vaccine distribution include supply chain issues, equitable access, storage requirements, and vaccine hesitancy.",
-    "15. Business safety protocols include implementing mask mandates, encouraging vaccinations, maintaining physical distancing, improving ventilation, and offering remote work options where feasible.",
-    "16. Ethical considerations in vaccine prioritization and distribution involve prioritizing vulnerable populations, ensuring equitable distribution globally, and balancing individual rights with public health.",
-    "17. Some individuals may experience long-term lung damage, including reduced lung function and fibrosis, after severe COVID-19 infection.",
-    "18. Guidelines for safely attending gatherings or events during the pandemic often include vaccination, mask-wearing, maintaining distance, and ensuring proper ventilation.",
-    "19. Research on new treatments or medications for COVID-19 focuses on antiviral medications, monoclonal antibodies, and repurposed drugs to reduce severity and improve recovery.",
-    "20. COVID-19 vaccination reduces transmission by lowering the likelihood of infection and severe disease, thus decreasing the spread within communities."]
+answers = ["Major risk factors for severe COVID-19 symptoms include age, underlying health conditions (such as diabetes or heart disease), weakened immune systems, and certain occupations or living conditions that increase exposure.",
+    "Booster doses significantly enhance immunity against COVID-19, especially against variants, by increasing antibody levels and providing stronger protection against severe illness.",
+    "Proper ventilation reduces the concentration of airborne virus particles indoors, lowering the risk of transmission among individuals.",
+    "While a balanced diet rich in fruits, vegetables, whole grains, and adequate protein supports the immune system, there's no specific diet proven to prevent COVID-19.",
+    "Monoclonal antibodies neutralize the virus, reduce viral load, and help the immune system fight COVID-19, often used for high-risk individuals or those with mild to moderate symptoms.",
+    "Long-term effects of vaccination focus on immune response, with severe adverse effects being rare.",
+    "Public health measures vary based on country policies, including vaccination strategies, mask mandates, lockdowns, testing, and contact tracing.",
+    "Strategies to mitigate pandemic fatigue include promoting self-care, encouraging breaks, maintaining routines, fostering social connections, and seeking professional support.",
+    "While pets can contract the virus, transmission to humans is rare and mostly occurs from human to pet rather than the other way around.",
+    "Individuals with pre-existing health conditions are at higher risk for severe illness or complications if they contract COVID-19.",
+    "Reasons for vaccine hesitancy vary from safety concerns, misinformation, lack of trust in authorities, historical issues, religious or cultural beliefs, to political influences.",
+    "School measures to minimize COVID-19 transmission include implementing mask mandates, promoting vaccinations for eligible students and staff, maintaining physical distancing, improving ventilation, and regular testing.",
+    "While some natural remedies might help alleviate symptoms, there's limited evidence supporting their effectiveness in treating COVID-19.",
+    "Challenges in vaccine distribution include supply chain issues, equitable access, storage requirements, and vaccine hesitancy.",
+    "Business safety protocols include implementing mask mandates, encouraging vaccinations, maintaining physical distancing, improving ventilation, and offering remote work options where feasible.",
+    "Ethical considerations in vaccine prioritization and distribution involve prioritizing vulnerable populations, ensuring equitable distribution globally, and balancing individual rights with public health.",
+    "Some individuals may experience long-term lung damage, including reduced lung function and fibrosis, after severe COVID-19 infection.",
+    "Guidelines for safely attending gatherings or events during the pandemic often include vaccination, mask-wearing, maintaining distance, and ensuring proper ventilation.",
+    "Research on new treatments or medications for COVID-19 focuses on antiviral medications, monoclonal antibodies, and repurposed drugs to reduce severity and improve recovery.",
+    "COVID-19 vaccination reduces transmission by lowering the likelihood of infection and severe disease, thus decreasing the spread within communities."]
 
 
 print("Welcome to the COVID-19 chatbot.")
@@ -62,19 +62,21 @@ while True:
 
 
     if choices == 1:
-        for idx, q in enumerate(questions, start=1):
-            print(f"{idx}. {q}")
-        question_choice = int(input("Choose a question number for more details: "))
-        if 1 <= question_choice <= len(questions):
-            chosen_question = questions[question_choice - 1]
-            answer_index = question_choice - 1
-            print(f"Question: {chosen_question}")
-            print(f"Answer: {answers[answer_index]}")
+       while True:
+           for idx, q in enumerate(questions, start=1):
+               print(f"{idx}. {q}")
+           question_choice = int(input("Choose a question number for more details: "))
+           if 1 <= question_choice <= len(questions):
+               chosen_question = questions[question_choice - 1]
+               answer_index = question_choice - 1
+               print(f"Question: {chosen_question}")
+               print(f"Answer: {answers[answer_index]}")
 
-        moreq=str(input("Do you have any more questions: (Yes/No) "))
-        if moreq=="No":
-                print("Thank you for using the COVID-19 chatbot. If you have any more questions you can choose from the following categories: ")
-                break
+               moreq = str(input("Do you have any more questions: (Yes/No) "))
+               if moreq == "No":
+                   print(
+                       "Thank you for using the COVID-19 chatbot. If you have any more questions you can choose from the following categories: ")
+                   break
 
     elif choices==2:
         symptoms=str(input("""Within the last 10 days, have you experienced any of the following symptoms: (Yes/No)

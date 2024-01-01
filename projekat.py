@@ -1,24 +1,3 @@
-# Dictionary to store user data
-user_data = {}
-
-# User registration
-def register_user():
-    email = input("Enter your email address: ")
-    password = input("Set your password: ")
-    user_data[email] = password
-    print("Registration successful.")
-
-# Function to authenticate users
-def authenticate_user():
-    email = input("Enter your email address: ")
-    password = input("Enter your password: ")
-    if email in user_data and user_data[email] == password:
-        print("Authentication successful.")
-        return True
-    else:
-        print("Authentication failed. Please check your credentials.")
-        return False
-
 # List of questions and answers
 questions = [" What are the major risk factors that increase the severity of COVID-19 symptoms?",
     "How effective are booster doses in enhancing immunity against COVID-19?",
@@ -62,20 +41,17 @@ answers = ["Major risk factors for severe COVID-19 symptoms include age, underly
     "Research on new treatments or medications for COVID-19 focuses on antiviral medications, monoclonal antibodies, and repurposed drugs to reduce severity and improve recovery.",
     "COVID-19 vaccination reduces transmission by lowering the likelihood of infection and severe disease, thus decreasing the spread within communities."]
 
-# Display welcome message
-print("Welcome to the COVID-19 chatbot.")
-print("Hello, my name is covid.io, and I am here to answer all questions COVID-19 related.")
 
-# User registration or login
-def login():
-    authenticated = authenticate_user()
-    if authenticated:
-        display_menu()
-    else:
-        register_option = input("User not found. Do you want to register? (Yes/No): ")
-        if register_option.lower() == "yes":
-            register_user()
-            login()
+# Dictionary to store user data
+user_data = {}
+
+# Function to validate email
+def validate_email(email):
+    valid_mail = ["@gmail.com", "@yahoo.com", "@hotmail.com"]
+    for domain in valid_mail:
+        if domain in email:
+            return True
+    return False
 
 # Display chatbot menu and handle user choices
 def display_menu():
@@ -166,6 +142,62 @@ def display_menu():
 
         elif choices == 0:
             print("Exiting the chatbot. Goodbye and take care")
+            return
 
-# Starting point of the program
-login()
+#Function to handle user login
+def login_user():
+    email = input("Enter your email address: ")
+    password = input("Enter your password: ")
+    if email in user_data and user_data[email] == password:
+        print("Login successful.")
+        print("Welcome to the COVID-19 chatbot.")
+        print("Hello, my name is covid.io, and I am here to answer all questions COVID-19 related.")
+        return True
+    else:
+        print("Invalid email or password. Would you like to register?")
+        return False
+
+# User registration
+def register_user():
+    while True:
+        email = input("Enter your email address: ")
+        password = input("Set your password: ")
+        if validate_email(email):
+            if email not in user_data:
+                user_data[email] = password
+                print("Registration successful.")
+                return True
+            else:
+                print("Email already exists. Registration failed.")
+                return False
+        else:
+            print("Invalid email. Registration failed.")
+            continue
+register_user()
+
+def userregistration():
+    while True:
+        login_option = input("Are you a registered user? (Yes/No): ").lower()
+        if login_option == "yes":
+            if login_user():
+                display_menu()
+            break
+        elif login_option == "no":
+            if register_user():
+                display_menu()
+            break
+        else:
+            print("Please enter a valid option (Yes/No)")
+
+
+
+def startingchatbot():
+    userregistration()
+
+startingchatbot()
+
+
+
+
+
+

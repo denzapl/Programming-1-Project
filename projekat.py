@@ -56,143 +56,185 @@ def validate_email(email):
 # Display chatbot menu and handle user choices
 def display_menu():
     while True:
-        choices = int(input("Choose the category: \n"
+        choices = int(input("\nChoose the category: \n"
                             "1. COVID-19 Health related questions\n"
                             "2. COVID-19 Symptoms\n"
                             "3. COVID-19 Prevention\n"
                             "4. COVID-19 Information\n"
                             "0. Exit Chatbot\n"))
-        if choices == 0:
-            print("Exiting the chatbot. Goodbye and take care")
-            break
+
 
         if choices == 1:
             while True:
                 for idx, q in enumerate(questions, start=1):
                     print(f"{idx}. {q}")
-                question_choice = int(input("Choose a question number for more details: "))
+                question_choice = int(input("\nChoose a question number for more details: "))
                 if 1 <= question_choice <= len(questions):
                     chosen_question = questions[question_choice - 1]
                     answer_index = question_choice - 1
                     print(f"Question: {chosen_question}")
                     print(f"Answer: {answers[answer_index]}")
 
-                    moreq = str(input("Do you have any more questions: (Yes/No) "))
+                    moreq = str(input("\nDo you have any more questions: (Yes/No) \n "))
                     if moreq == "No":
                         print(
                             "Thank you for using the COVID-19 chatbot. If you have any more questions you can choose from the following categories: ")
                         break
 
-        elif choices == 2:
-            symptoms = str(input("""Within the last 10 days, have you experienced any of the following symptoms: (Yes/No)
-                                   1.Fever or chills\n
-                                   2.Cough\n
-                                   3.Shortness of breath or difficulty breathing\n
-                                   4.New loss of taste or smell\n
-                                   5.Fatigue\n
-                                   6.Muscle or body aches\n
-                                   7.Headache\n
-                                   8.Sore throat\n
-                                   9.Congestion or runny nose\n
-                                   10.Nausea or vomiting\n
-                                   11.Diarrhea\n"""))
+        if choices == 2:
 
-            if symptoms == "Yes":
-                print(
-                    "Consider undergoing a COVID-19 viral test. If symptoms have appeared earlier, get tested promptly. Meanwhile, follow the quarantine guidelines, considering your vaccination status, as you await your test results. Seek personalized medical advice from a healthcare professional for further guidance.")
+            points = 0
+
+            print("\nPlease answer with 'Yes' or 'No' to the following symptoms:")
+
+            symptoms = [
+
+                ("Fever or chills", 15),
+
+                ("Cough", 5),
+
+                ("Shortness of breath or difficulty breathing", 10),
+
+                ("New loss of taste or smell", 15),
+
+                ("Fatigue", 10),
+
+                ("Muscle or body aches", 10),
+
+                ("Headache", 5),
+
+                ("Sore throat", 5),
+
+                ("Congestion or runny nose", 5),
+
+                ("Nausea or vomiting", 10),
+
+                ("Diarrhea", 10)
+
+            ]
+
+            for symptom, point in symptoms:
+
+                answer = input(f"{symptom}? (Yes/No): ")
+
+                if answer.lower() == "yes":
+                    points += point
+
+            print(f"Total points: {points}")
+
+            severity=points
+
+            if severity <= 25:
+
+                print("Low likelihood of having COVID-19.")
+
+            elif 25 < severity <= 50:
+
+                print("Chance of COVID-19, consider monitoring your symptoms.")
+
+            elif 50 < severity <= 75:
+
+                print("Significant likelihood of having COVID-19, seek medical advice.")
+
             else:
-                print("It seems like you haven't experienced any COVID-19 symptoms.")
 
+                print("High likelihood of having COVID-19. Please consult a healthcare professional immediately.")
 
         elif choices == 3:
-            print("""
-                            Additional COVID-19 Prevention Measures:
-                            1. Avoid Crowded Places: Minimize time spent in crowded areas or gatherings.
-                            2. Remote Work: If feasible, work from home to reduce exposure in workplaces.
-                            3. Limit Close Contact: Avoid close contact with individuals outside your household.
-                            4. Follow Quarantine Guidelines: Adhere to quarantine guidelines if exposed or infected.
-                            5. Support Contact Tracing: Cooperate with contact tracing efforts by health authorities.
-                            6. Disinfect Frequently: Clean and disinfect high-touch surfaces regularly.
-                            7. Outdoor Activities: Opt for outdoor activities, where possible, over indoor gatherings.
-                            8. Consider Ventilation: Open windows or use air purifiers for better indoor air circulation.
-                            9. Immunocompromised Individuals: Take extra precautions to protect vulnerable individuals.
-                            10. Mental Health Support: Seek mental health support to cope with stress or anxiety.
-
-                            These measures, along with the standard preventive actions, help in reducing the spread of COVID-19.
-                            """)
+            print("""Additional COVID-19 Prevention Measures:
+             1. Avoid Crowded Places: Minimize time spent in crowded areas or gatherings.
+             2. Remote Work: If feasible, work from home to reduce exposure in workplaces.
+             3. Limit Close Contact: Avoid close contact with individuals outside your household.
+             4. Follow Quarantine Guidelines: Adhere to quarantine guidelines if exposed or infected.
+             5. Support Contact Tracing: Cooperate with contact tracing efforts by health authorities.
+             6. Disinfect Frequently: Clean and disinfect high-touch surfaces regularly.
+             7. Outdoor Activities: Opt for outdoor activities, where possible, over indoor gatherings.
+             8. Consider Ventilation: Open windows or use air purifiers for better indoor air circulation.
+             9. Immunocompromised Individuals: Take extra precautions to protect vulnerable individuals.
+             10. Mental Health Support: Seek mental health support to cope with stress or anxiety.
+These measures, along with the standard preventive actions, help in reducing the spread of COVID-19.""")
 
 
         elif choices == 4:
             print("""
-                    1. Transmission: COVID-19 primarily spreads through respiratory droplets when an infected person coughs, sneezes, talks, or breathes. It can also spread by touching surfaces contaminated with the virus and then touching the face.
-                    2. Symptoms: Common symptoms include fever, cough, shortness of breath, fatigue, muscle or body aches, headache, sore throat, loss of taste or smell, congestion, runny nose, nausea, or diarrhea.
-                    3. Vaccines: Several vaccines have been developed and authorized for emergency use to prevent COVID-19. Vaccination helps reduce the severity of the illness and prevents hospitalization and death.
-                    4. Variants: Multiple variants of the virus have emerged worldwide, some of which have shown increased transmissibility or the potential to evade immunity generated by previous infections or vaccination.
-                    5. Preventive Measures: Effective preventive measures include wearing masks, practicing good hand hygiene, maintaining physical distance, getting vaccinated, and following public health guidelines.
-                    6. Delta Variant: The Delta variant, identified as more transmissible, led to a surge in cases in various parts of the world due to its increased infectivity.
-                    7. Long COVID: Some individuals experience lingering symptoms after recovering from acute COVID-19, known as long COVID. These symptoms can persist for weeks or months and may include fatigue, shortness of breath, brain fog, and others.
-                    8. Pandemic Impact: COVID-19 significantly impacted global economies, healthcare systems, education, and mental health due to lockdowns, travel restrictions, and social distancing measures.
-                    9. Treatments: Various treatments, such as antiviral medications and monoclonal antibodies, have been developed to help reduce the severity of COVID-19 in infected individuals.
-                    10. Breakthrough Infections: Vaccinated individuals can still get infected with COVID-19, but vaccination significantly reduces the risk of severe illness, hospitalization, and death.
-                    11. Booster Shots: Booster doses have been recommended for certain populations to enhance and prolong protection against COVID-19, especially amid concerns about waning immunity over time.
-                    12. Global Response: Countries worldwide have implemented vaccination drives, travel restrictions, and other measures to curb the spread of the virus and protect their populations.
-                    13. Misinformation: The pandemic has seen the spread of misinformation and conspiracy theories about the virus, vaccines, and public health measures, posing challenges to efforts in controlling the spread of COVID-19.
-                    14. Vaccination Equity: Ensuring equitable access to vaccines has been a challenge globally, with disparities in vaccine distribution and access among different countries and populations.
-                    15. Omicron Variant: In late 2021, a new variant called Omicron was identified, prompting concerns due to its high number of mutations. Efforts are ongoing to understand its transmissibility, severity, and its potential impact on vaccine effectiveness.""")
+            1. Transmission: COVID-19 primarily spreads through respiratory droplets when an infected person coughs, sneezes, talks, or breathes. It can also spread by touching surfaces contaminated with the virus and then touching the face.'
+            2. Symptoms: Common symptoms include fever, cough, shortness of breath, fatigue, muscle or body aches, headache, sore throat, loss of taste or smell, congestion, runny nose, nausea, or diarrhea.
+            3. Vaccines: Several vaccines have been developed and authorized for emergency use to prevent COVID-19. Vaccination helps reduce the severity of the illness and prevents hospitalization and death.
+            4. Variants: Multiple variants of the virus have emerged worldwide, some of which have shown increased transmissibility or the potential to evade immunity generated by previous infections or vaccination.
+            5. Preventive Measures: Effective preventive measures include wearing masks, practicing good hand hygiene, maintaining physical distance, getting vaccinated, and following public health guidelines.
+            6. Delta Variant: The Delta variant, identified as more transmissible, led to a surge in cases in various parts of the world due to its increased infectivity.
+            7. Long COVID: Some individuals experience lingering symptoms after recovering from acute COVID-19, known as long COVID. These symptoms can persist for weeks or months and may include fatigue, shortness of breath, brain fog, and others.
+            8. Pandemic Impact: COVID-19 significantly impacted global economies, healthcare systems, education, and mental health due to lockdowns, travel restrictions, and social distancing measures.
+            9. Treatments: Various treatments, such as antiviral medications and monoclonal antibodies, have been developed to help reduce the severity of COVID-19 in infected individuals.
+            10. Breakthrough Infections: Vaccinated individuals can still get infected with COVID-19, but vaccination significantly reduces the risk of severe illness, hospitalization, and death.
+            11. Booster Shots: Booster doses have been recommended for certain populations to enhance and prolong protection against COVID-19, especially amid concerns about waning immunity over time.
+            12. Global Response: Countries worldwide have implemented vaccination drives, travel restrictions, and other measures to curb the spread of the virus and protect their populations.
+            13. Misinformation: The pandemic has seen the spread of misinformation and conspiracy theories about the virus, vaccines, and public health measures, posing challenges to efforts in controlling the spread of COVID-19.
+            14. Vaccination Equity: Ensuring equitable access to vaccines has been a challenge globally, with disparities in vaccine distribution and access among different countries and populations.
+            15. Omicron Variant: In late 2021, a new variant called Omicron was identified, prompting concerns due to its high number of mutations. Efforts are ongoing to understand its transmissibility, severity, and its potential impact on vaccine effectiveness.""")
 
         elif choices == 0:
             print("Exiting the chatbot. Goodbye and take care")
-            return
+            break
+
 
 #Function to handle user login
 def login_user():
-    email = input("Enter your email address: ")
-    password = input("Enter your password: ")
+    email = input("\nEnter your email address: \n")
+    password = input("\nEnter your password: \n")
     if email in user_data and user_data[email] == password:
-        print("Login successful.")
+        print("\nLogin successful.")
         print("Welcome to the COVID-19 chatbot.")
         print("Hello, my name is covid.io, and I am here to answer all questions COVID-19 related.")
         return True
     else:
-        print("Invalid email or password. Would you like to register?")
+        print("Invalid email or password.")
         return False
 
 # User registration
-def register_user():
-    while True:
-        email = input("Enter your email address: ")
-        password = input("Set your password: ")
-        if validate_email(email):
-            if email not in user_data:
-                user_data[email] = password
-                print("Registration successful.")
-                return True
-            else:
-                print("Email already exists. Registration failed.")
-                return False
-        else:
-            print("Invalid email. Registration failed.")
-            continue
-register_user()
 
 def userregistration():
     while True:
-        login_option = input("Are you a registered user? (Yes/No): ").lower()
-        if login_option == "yes":
+        login_option = input("Are you a registered user? (Yes/No): \n")
+        if login_option.lower() == "yes":
             if login_user():
                 display_menu()
             break
-        elif login_option == "no":
+        elif login_option.lower() == "no":
             if register_user():
-                display_menu()
-            break
+                print("Now you can log in.")
+                if login_user():
+                    display_menu()
+                    break
+                else:
+                    continue
+            else:
+                continue
         else:
-            print("Please enter a valid option (Yes/No)")
+            print("Please enter a valid option: (Yes/No) \n")
+            continue
 
 
+def register_user():
+    while True:
+        email = input("Enter your email address:\n ")
+        password = input("Set your password:\n ")
+        if validate_email(email):
+            if email not in user_data:
+                user_data[email] = password
+                print("\nRegistration successful.\n")
+                return True
+            else:
+                print("\nEmail already exists. Registration failed.")
+                return False
+        else:
+            print("\nInvalid email. Registration failed.")
+            continue
 
 def startingchatbot():
+    register_user()
     userregistration()
+
 
 startingchatbot()
 

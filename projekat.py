@@ -53,7 +53,62 @@ def validate_email(email):
             return True
     return False
 
-# Display chatbot menu and handle user choices
+#Function to handle user login
+def login_user():
+    while True:
+        email = input("\nEnter your email address: \n")
+        password = input("\nEnter your password: \n")
+        if email in user_data and user_data[email] == password:
+            print("\nLogin successful.")
+            print("Welcome to the COVID-19 chatbot.")
+            print("Hello, my name is covid.io, and I am here to answer all questions COVID-19 related.")
+            return True
+        else:
+            print("Invalid email or password. Please try again.")
+            continue
+
+# Registering a new user
+def registration():
+    while True:
+        email = input("Enter your email address:\n ")
+        password = input("Set your password:\n ")
+        if validate_email(email):
+            if email not in user_data:
+                user_data[email] = password
+                print("\nRegistration successful.\n")
+                break
+            else:
+                print("\nEmail already exists. Registration failed.")
+                continue
+        else:
+            print("\nInvalid email. Registration failed.")
+            continue
+
+# Checking if the user is registered or needs to register
+def registrationchecker():
+    while True:
+        login_option = input("Are you a registered user? (Yes/No): \n")
+        if login_option == "Yes":
+            if login_user():
+                display_menu()
+            break
+        elif login_option == "No":
+            if registration():
+                print("Now you can log in.")
+                if login_user():
+                    display_menu()
+                    break
+                else:
+                    continue
+            else:
+                continue
+        else:
+            print("Please enter a valid option: (Yes/No) \n")
+            continue
+
+
+
+# Displaying Chatbot menu and handling user choices
 def display_menu():
     while True:
         choices = int(input("\nChoose the category: \n"
@@ -67,13 +122,14 @@ def display_menu():
         if choices == 1:
             while True:
                 for idx, q in enumerate(questions, start=1):
-                    print(f"{idx}. {q}")
+                    print(str(idx) + ". " + q)
+
                 question_choice = int(input("\nChoose a question number for more details: "))
                 if 1 <= question_choice <= len(questions):
                     chosen_question = questions[question_choice - 1]
-                    answer_index = question_choice - 1
-                    print(f"Question: {chosen_question}")
-                    print(f"Answer: {answers[answer_index]}")
+                    chosen_answer = answers[question_choice - 1]
+                    print("Question: " + chosen_question)
+                    print("Answer: " + chosen_answer)
 
                     moreq = str(input("\nDo you have any more questions: (Yes/No) \n "))
                     if moreq == "No":
@@ -115,18 +171,18 @@ def display_menu():
 
             for symptom, point in symptoms:
 
-                answer = input(f"{symptom}? (Yes/No): ")
+                answer = input(symptom + "? (Yes/No): ")
 
-                if answer.lower() == "yes":
+                if answer=="Yes":
                     points += point
 
-            print(f"Total points: {points}")
+            print("Total points: " + str(points))
 
             severity=points
 
             if severity <= 25:
 
-                print("Low likelihood of having COVID-19.")
+                print("Low chance of having COVID-19.")
 
             elif 25 < severity <= 50:
 
@@ -134,7 +190,7 @@ def display_menu():
 
             elif 50 < severity <= 75:
 
-                print("Significant likelihood of having COVID-19, seek medical advice.")
+                print("Significant chance of having COVID-19, seek medical advice.")
 
             else:
 
@@ -178,62 +234,10 @@ These measures, along with the standard preventive actions, help in reducing the
             break
 
 
-#Function to handle user login
-def login_user():
-    email = input("\nEnter your email address: \n")
-    password = input("\nEnter your password: \n")
-    if email in user_data and user_data[email] == password:
-        print("\nLogin successful.")
-        print("Welcome to the COVID-19 chatbot.")
-        print("Hello, my name is covid.io, and I am here to answer all questions COVID-19 related.")
-        return True
-    else:
-        print("Invalid email or password.")
-        return False
-
-# User registration
-
-def userregistration():
-    while True:
-        login_option = input("Are you a registered user? (Yes/No): \n")
-        if login_option.lower() == "yes":
-            if login_user():
-                display_menu()
-            break
-        elif login_option.lower() == "no":
-            if register_user():
-                print("Now you can log in.")
-                if login_user():
-                    display_menu()
-                    break
-                else:
-                    continue
-            else:
-                continue
-        else:
-            print("Please enter a valid option: (Yes/No) \n")
-            continue
-
-
-def register_user():
-    while True:
-        email = input("Enter your email address:\n ")
-        password = input("Set your password:\n ")
-        if validate_email(email):
-            if email not in user_data:
-                user_data[email] = password
-                print("\nRegistration successful.\n")
-                return True
-            else:
-                print("\nEmail already exists. Registration failed.")
-                return False
-        else:
-            print("\nInvalid email. Registration failed.")
-            continue
-
+# Starting the chatbot
 def startingchatbot():
-    register_user()
-    userregistration()
+    registration()
+    registrationchecker()
 
 
 startingchatbot()
